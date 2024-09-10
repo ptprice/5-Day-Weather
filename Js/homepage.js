@@ -37,7 +37,7 @@ const cities = function (city) {
 }
 
 const getCityCoordinates = function (city) {
-  const apiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${APIKey}`;
+  const apiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${APIKey}`;
 
   fetch(apiUrl)
     .then(function (response) {
@@ -59,7 +59,7 @@ const getCityCoordinates = function (city) {
 
 
 const getCityWeather = function (lat,lon) {
-  const apiUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIKey}`;
+  const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIKey}`;
 
   fetch(apiUrl)
     .then(function (response) {
@@ -94,7 +94,7 @@ const displayOneDay = function (forecast) {
   const statusEl = document.createElement('img');
   statusEl.classList = 'flex-row align-center';
 
-  statusEl.setAttribute('src', `http://openweathermap.org/img/wn/${forecast.weather[0].icon}.png`);
+  statusEl.setAttribute('src', `https://openweathermap.org/img/wn/${forecast.weather[0].icon}.png`);
 
   const tempEl = document.createElement('span');
   tempEl.textContent =`${Math.round((forecast.main.temp - 273.15) * 9/5 + 32)}`+'°F';
@@ -143,7 +143,7 @@ console.log(name);
     const statusEl = document.createElement('img');
     statusEl.classList = 'flex-row align-center';
 
-    statusEl.setAttribute('src', `http://openweathermap.org/img/wn/${forecastObj.weather[0].icon}.png`);
+    statusEl.setAttribute('src', `https://openweathermap.org/img/wn/${forecastObj.weather[0].icon}.png`);
 
     const tempEl = document.createElement('span');
     tempEl.textContent = `${Math.round((forecastObj.main.temp - 273.15) * 9/5 + 32)} °F`;
